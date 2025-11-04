@@ -1,239 +1,1755 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Website Desa Noongan DUA</title>
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
-    <link href="https://cdn.jsdelivr.net/npm/heroicons@2.1.3/css/solid.min.css" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/heroicons@2.1.3/css/solid.min.css"
+      rel="stylesheet"
+    />
 
     <style>
-        body { font-family: 'Poppins', sans-serif; }
-        .fade-in-section { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-        .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
-        .modal-content { transition: opacity 0.3s ease-out, transform 0.3s ease-out; }
-        #mapZoomModal .modal-content { max-height: 90vh; overflow: auto; }
-        header nav ul li.group { padding-bottom: 0.5rem; margin-bottom: -0.5rem; }
-        header nav ul li.group ul { margin-top: 0; opacity: 0; visibility: hidden; transform: translateY(10px); transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease; }
-        header nav ul li.group:hover ul { opacity: 1; visibility: visible; transform: translateY(0); }
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      .fade-in-section {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .fade-in-section.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .modal-content {
+        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+      }
+      #mapZoomModal .modal-content {
+        max-height: 90vh;
+        overflow: auto;
+      }
+      header nav ul li.group {
+        padding-bottom: 0.5rem;
+        margin-bottom: -0.5rem;
+      }
+      header nav ul li.group ul {
+        margin-top: 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+      }
+      header nav ul li.group:hover ul {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
     </style>
-</head>
-<body class="bg-gray-50">
-
+  </head>
+  <body class="bg-gray-50">
     <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
-        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="#home" class="flex items-center gap-2">
-                <img src="logominahasa.jpg" alt="Logo Desa" class="h-10"> 
-                <span class="font-bold text-xl text-gray-800">Desa Noongan DUA</span> 
+      <nav
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <a href="#home" class="flex items-center gap-2">
+          <img src="logominahasa.jpg" alt="Logo Desa" class="h-10" />
+          <span class="font-bold text-xl text-gray-800">Desa Noongan DUA</span>
+        </a>
+        <div id="mobile-menu-button" class="md:hidden cursor-pointer z-50">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </div>
+        <ul
+          id="mobile-menu"
+          class="hidden absolute top-full left-0 right-0 bg-white shadow-md py-4 md:py-0 md:static md:flex md:items-center md:space-x-6 md:shadow-none md:bg-transparent font-semibold text-gray-600 z-40"
+        >
+          <li class="relative group px-4 py-2 md:p-0">
+            <a
+              href="#jelajahi"
+              class="flex items-center hover:text-red-600 transition-colors nav-link"
+            >
+              Jelajahi
+              <svg
+                class="w-4 h-4 ml-1 text-gray-500 group-hover:text-red-600 transition-colors"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.22 8.22a.75.75 0 011.06 0L10 11.94l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 9.28a.75.75 0 010-1.06z"
+                  clip-rule="evenodd"
+                />
+              </svg>
             </a>
-            <div id="mobile-menu-button" class="md:hidden cursor-pointer z-50"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg> </div>
-            <ul id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-white shadow-md py-4 md:py-0 md:static md:flex md:items-center md:space-x-6 md:shadow-none md:bg-transparent font-semibold text-gray-600 z-40"> 
-                <li class="relative group px-4 py-2 md:p-0"> <a href="#jelajahi" class="flex items-center hover:text-red-600 transition-colors nav-link"> Jelajahi <svg class="w-4 h-4 ml-1 text-gray-500 group-hover:text-red-600 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 011.06 0L10 11.94l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 9.28a.75.75 0 010-1.06z" clip-rule="evenodd" /></svg> </a> <ul class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block z-50"> <li><a href="#organisasi" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 nav-link">Organisasi</a></li> <li><a href="#wilayah" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 nav-link">Wilayah</a></li> <li><a href="#penduduk" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 nav-link">Penduduk</a></li> </ul> </li>
-                <li class="px-4 py-2 md:p-0"><a href="#potensi" class="block hover:text-red-600 transition-colors nav-link">Potensi</a></li> <li class="px-4 py-2 md:p-0"><a href="#peta" class="block hover:text-red-600 transition-colors nav-link">Peta</a></li> <li class="px-4 py-2 md:p-0"><a href="#berita" class="block hover:text-red-600 transition-colors nav-link">Berita</a></li> <li class="px-4 py-2 md:p-0"> <a href="#kontak" class="block md:inline-block bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition-all nav-link text-center"> Kontak </a> </li>
+            <ul
+              class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block z-50"
+            >
+              <li>
+                <a
+                  href="#organisasi"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 nav-link"
+                  >Organisasi</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#wilayah"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 nav-link"
+                  >Wilayah</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#penduduk"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 nav-link"
+                  >Penduduk</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#pekerjaan"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 nav-link"
+                  >Pekerjaan</a
+                >
+              </li>
             </ul>
-        </nav>
+          </li>
+          <li class="px-4 py-2 md:p-0">
+            <a
+              href="#potensi"
+              class="block hover:text-red-600 transition-colors nav-link"
+              >Potensi</a
+            >
+          </li>
+          <li class="px-4 py-2 md:p-0">
+            <a
+              href="#peta"
+              class="block hover:text-red-600 transition-colors nav-link"
+              >Peta</a
+            >
+          </li>
+          <li class="px-4 py-2 md:p-0">
+            <a
+              href="#berita"
+              class="block hover:text-red-600 transition-colors nav-link"
+              >Berita</a
+            >
+          </li>
+          <li class="px-4 py-2 md:p-0">
+            <a
+              href="#kontak"
+              class="block md:inline-block bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition-all nav-link text-center"
+            >
+              Kontak
+            </a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <main>
-        <section id="home" class="h-screen min-h-[600px] flex items-center justify-center relative"> 
-            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('header.jpg');"></div>
-            <div class="absolute inset-0 bg-black/60"></div> 
-            <div class="relative text-center text-white p-4"> 
-                <h1 class="text-5xl md:text-7xl font-bold mb-4">Selamat Datang</h1> 
-                <p class="text-xl md:text-2xl font-light">Website Resmi Desa Noongan DUA</p> 
-                <p class="text-lg md:text-xl font-light mt-2">Sumber informasi terpadu pemerintahan dan potensi desa kami.</p> 
-                <a href="#jelajahi" class="mt-8 inline-block bg-red-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-red-700 transition-all transform hover:scale-105"> Mulai Menjelajah </a> 
-            </div> 
-        </section>
-        
-        <section id="jelajahi" class="py-20 bg-white fade-in-section"> <div class="container mx-auto px-4 text-center"> <h2 class="text-4xl font-bold text-gray-800 mb-4">Jelajahi Desa</h2> <p class="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">Pelajari lebih lanjut tentang desa kami melalui profil, sejarah, serta visi dan misi.</p> <div class="grid md:grid-cols-3 gap-8"> <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 cursor-pointer" data-modal-target="profilModal"> <div class="bg-red-100 text-red-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10"><path fill-rule="evenodd" d="M11.47 2.47a.75.75 0 0 1 1.06 0l4.5 4.5a.75.75 0 0 1-1.06 1.06l-3.22-3.22V16.5a.75.75 0 0 1-1.5 0V4.81L8.03 8.03a.75.75 0 0 1-1.06-1.06l4.5-4.5ZM3 19.5a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" /></svg> </div> <h3 class="text-2xl font-semibold mb-3">Profil Desa</h3> <p class="text-gray-600">Klik untuk membaca lebih lanjut tentang profil desa.</p> </div> <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 cursor-pointer" data-modal-target="sejarahModal"> <div class="bg-red-100 text-red-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10"><path d="M11.25 4.533A9.707 9.707 0 0 0 6 3a9.735 9.735 0 0 0-3.25.555.75.75 0 0 0-.5.707v14.5c0 .339.214.642.533.728a9.735 9.735 0 0 0 3.217-.555 9.707 9.707 0 0 0 5.25 1.288 9.707 9.707 0 0 0 5.25-1.288 9.735 9.735 0 0 0 3.217.555.75.75 0 0 0 .533-.728V4.262a.75.75 0 0 0-.5-.707A9.735 9.735 0 0 0 18 3a9.707 9.707 0 0 0-5.25 1.288 9.707 9.707 0 0 0-1.5-0.055ZM11.25 6.006a8.207 8.207 0 0 1 5.25 1.082V17.4a8.235 8.235 0 0 1-3.217.555 8.207 8.207 0 0 1-5.25-1.082V7.556a8.235 8.235 0 0 1 3.217-.555Z" /></svg> </div> <h3 class="text-2xl font-semibold mb-3">Sejarah Desa</h3> <p class="text-gray-600">Klik untuk membaca lebih lanjut tentang sejarah desa.</p> </div> <div class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 cursor-pointer" data-modal-target="visiMisiModal"> <div class="bg-red-100 text-red-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10"><path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm.53 5.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.72-1.72v5.69a.75.75 0 0 0 1.5 0v-5.69l1.72 1.72a.75.75 0 1 0 1.06-1.06l-3-3Z" clip-rule="evenodd" /></svg> </div> <h3 class="text-2xl font-semibold mb-3">Visi & Misi</h3> <p class="text-gray-600">Klik untuk membaca lebih lanjut tentang visi & misi.</p> </div> </div> </div> </section>
-        
-        <section id="organisasi" class="py-20 bg-gray-50 fade-in-section"> <div class="container mx-auto px-4 text-center"> <h2 class="text-4xl font-bold text-gray-800 mb-4">Struktur Organisasi</h2> <p class="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">Struktur Pemerintahan Desa Noongan DUA.</p> <div class="space-y-10"> <div class="flex justify-center"> <div class="bg-white p-6 rounded-xl shadow-lg border-2 border-red-600 w-full max-w-sm"> <h4 class="text-lg font-bold text-red-700">Hukum Tua</h4> <p class="text-xl font-semibold text-gray-900">Veky Donal Soriton, Ama.TM</p> </div> </div> <div class="w-px h-10 bg-gray-300 mx-auto"></div> <div> <h3 class="text-2xl font-semibold text-gray-700 mb-8">Aparat Sekretariat Desa</h3> <div class="flex justify-center mb-8"> <div class="bg-white p-6 rounded-xl shadow-lg border-2 border-red-500 w-full max-w-sm"> <h4 class="text-md font-bold text-gray-500">Sekretaris Desa</h4> <p class="text-lg font-semibold text-gray-900">Elfira Ellisa Wungkana, SKM</p> </div> </div> <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"> <div class="bg-white p-4 rounded-xl shadow-md border border-gray-200"><h4 class="text-sm font-bold text-gray-500">Kaur Keuangan</h4><p class="text-md font-semibold text-gray-900">Audy Alfrits Wungkar, S.E</p></div> <div class="bg-white p-4 rounded-xl shadow-md border border-gray-200"><h4 class="text-sm font-bold text-gray-500">Kaur Umum</h4><p class="text-md font-semibold text-gray-900">Rentje Tambuwun</p></div> <div class="bg-white p-4 rounded-xl shadow-md border border-gray-200"><h4 class="text-sm font-bold text-gray-500">Kasie Pemerintahan</h4><p class="text-md font-semibold text-gray-900">Nordy Raranta</p></div> <div class="bg-white p-4 rounded-xl shadow-md border border-gray-200"><h4 class="text-sm font-bold text-gray-500">Kasie Kesejahteraan</h4><p class="text-md font-semibold text-gray-900">Very Ronald Wungkana</p></div> <div class="bg-white p-4 rounded-xl shadow-md border border-gray-200"><h4 class="text-sm font-bold text-gray-500">Kasie Perencanaan</h4><p class="text-md font-semibold text-gray-900">Hanny Soriton</p></div> <div class="bg-white p-4 rounded-xl shadow-md border border-gray-200"><h4 class="text-sm font-bold text-gray-500">Operator Desa</h4><p class="text-md font-semibold text-gray-900">Revina Wintry Jostein, S.E</p></div> </div> </div> <div class="w-px h-10 bg-gray-300 mx-auto"></div> <div> <h3 class="text-2xl font-semibold text-gray-700 mb-8">Aparat Wilayah (Jaga)</h3> <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5"> <div class="bg-white p-5 rounded-xl shadow-lg border border-gray-200"><h4 class="text-md font-bold text-red-600 mb-2">JAGA 1</h4><p class="text-sm font-semibold text-gray-800">Recky Wungkana</p><p class="text-xs text-gray-500">(Kepala Jaga)</p><hr class="my-2"><p class="text-sm font-semibold text-gray-800">Erwin Walean</p><p class="text-xs text-gray-500">(Meweteng Jaga)</p></div> <div class="bg-white p-5 rounded-xl shadow-lg border border-gray-200"><h4 class="text-md font-bold text-red-600 mb-2">JAGA 2</h4><p class="text-sm font-semibold text-gray-800">Jefry Wowiling</p><p class="text-xs text-gray-500">(Kepala Jaga)</p><hr class="my-2"><p class="text-sm font-semibold text-gray-800">Constan Rommy Woran</p><p class="text-xs text-gray-500">(Meweteng Jaga)</p></div> <div class="bg-white p-5 rounded-xl shadow-lg border border-gray-200"><h4 class="text-md font-bold text-red-600 mb-2">JAGA 3</h4><p class="text-sm font-semibold text-gray-800">Very Djowi Sumual</p><p class="text-xs text-gray-500">(Kepala Jaga)</p><hr class="my-2"><p class="text-sm font-semibold text-gray-800">Hizkia Hersi Sambur</p><p class="text-xs text-gray-500">(Meweteng Jaga)</p></div> <div class="bg-white p-5 rounded-xl shadow-lg border border-gray-200"><h4 class="text-md font-bold text-red-600 mb-2">JAGA 4</h4><p class="text-sm font-semibold text-gray-800">Destifly Kanter</p><p class="text-xs text-gray-500">(Kepala Jaga)</p><hr class="my-2"><p class="text-sm font-semibold text-gray-800">Lorina Ignasia Kembuan</p><p class="text-xs text-gray-500">(Meweteng Jaga)</p></div> <div class="bg-white p-5 rounded-xl shadow-lg border border-gray-200"><h4 class="text-md font-bold text-red-600 mb-2">JAGA 5</h4><p class="text-sm font-semibold text-gray-800">Herie Safenfrie Soriton</p><p class="text-xs text-gray-500">(Kepala Jaga)</p><hr class="my-2"><p class="text-sm font-semibold text-gray-800">Hendrik Buang Kaat</p><p class="text-xs text-gray-500">(Meweteng Jaga)</p></div> </div> </div> </div> </div> </section>
-        
-        <section id="wilayah" class="py-20 bg-gray-50 fade-in-section"> <div class="container mx-auto px-4"> <div class="text-center mb-16"> <h2 class="text-4xl font-bold text-gray-800 mb-4">Wilayah dan Batas Desa</h2> <p class="text-lg text-gray-600 max-w-3xl mx-auto">Memahami letak geografis dan batas-batas administratif Desa Noongan DUA.</p> </div> <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"> <div> <img id="map-image-trigger" src="PETA ADM NOONGAN 2.jpg" alt="Peta Administrasi Desa Noongan" class="w-full h-full object-contain rounded-lg shadow-lg cursor-pointer transition-transform duration-300 hover:scale-105"> </div> <div> <h3 class="text-2xl font-semibold text-gray-800 mb-6">Batas Administratif</h3> <div class="space-y-6"> <div class="flex items-start gap-4"><div class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"> <path fill-rule="evenodd" d="M12 2.25a.75.75 0 01.75.75v16.19l6.22-6.22a.75.75 0 111.06 1.06l-7.5 7.5a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 111.06-1.06l6.22 6.22V3a.75.75 0 01.75-.75z" clip-rule="evenodd" transform="rotate(180 12 12)" /> </svg></div><div><h4 class="text-lg font-semibold text-gray-700">Utara</h4><p class="text-gray-600">Berbatasan dengan Desa Raringis Utara.</p></div></div> <div class="flex items-start gap-4"><div class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"> <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 011.06 0l7.5 7.5a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 11-1.06-1.06l6.22-6.22H3a.75.75 0 010-1.5h16.19l-6.22-6.22a.75.75 0 010-1.06z" clip-rule="evenodd" /> </svg></div><div><h4 class="text-lg font-semibold text-gray-700">Timur</h4><p class="text-gray-600">Berbatasan dengan Desa Noongan Tiga, Desa Woiwongko, dan Desa Koyawas.</p></div></div> <div class="flex items-start gap-4"><div class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"> <path fill-rule="evenodd" d="M12 2.25a.75.75 0 01.75.75v16.19l6.22-6.22a.75.75 0 111.06 1.06l-7.5 7.5a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 111.06-1.06l6.22 6.22V3a.75.75 0 01.75-.75z" clip-rule="evenodd" /> </svg></div><div><h4 class="text-lg font-semibold text-gray-700">Selatan</h4><p class="text-gray-600">Berbatasan dengan wilayah Kabupaten Minahasa Tenggara.</p></div></div> <div class="flex items-start gap-4"><div class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"> <path fill-rule="evenodd" d="M11.03 3.97a.75.75 0 010 1.06l-6.22 6.22H21a.75.75 0 010 1.5H4.81l6.22 6.22a.75.75 0 11-1.06 1.06l-7.5-7.5a.75.75 0 010-1.06l7.5-7.5a.75.75 0 011.06 0z" clip-rule="evenodd" /> </svg></div><div><h4 class="text-lg font-semibold text-gray-700">Barat</h4><p class="text-gray-600">Berbatasan dengan wilayah perkebunan dan Desa Noongan.</p></div></div> </div> </div> </div> </div> </section>
-        
-        <section id="penduduk" class="py-20 bg-red-700 text-white fade-in-section"> <div class="container mx-auto px-4 text-center"> <h2 class="text-4xl font-bold mb-12">Data Penduduk</h2> <div class="grid grid-cols-2 md:grid-cols-4 gap-8"> <div><span class="text-5xl font-bold block data-counter" data-target="1131">0</span><span class="text-lg text-red-100">Total Penduduk</span></div> <div><span class="text-5xl font-bold block data-counter" data-target="408">0</span><span class="text-lg text-red-100">Kepala Keluarga</span></div> <div><span class="text-5xl font-bold block data-counter" data-target="582">0</span><span class="text-lg text-red-100">Laki-laki</span></div> <div><span class="text-5xl font-bold block data-counter" data-target="549">0</span><span class="text-lg text-red-100">Perempuan</span></div> </div> </div> </section>
-        
-        <section id="potensi" class="py-20 bg-white fade-in-section"> <div class="container mx-auto px-4"> <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">Potensi Unggulan Desa</h2> <p class="text-lg text-gray-600 mb-16 max-w-3xl mx-auto text-center">Desa Noongan DUA dianugerahi sumber daya alam dan potensi lokal yang beragam, menjadi pilar utama perekonomian dan kesejahteraan masyarakat.</p> <div id="potensi-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"> <p id="potensi-loading-message" class="text-center md:col-span-3 text-gray-500">Memuat potensi desa...</p> </div> </div> </section>
-        
-        <section id="peta" class="py-20 bg-gray-100 fade-in-section"><div class="container mx-auto px-4 text-center"><h2 class="text-4xl font-bold text-gray-800 mb-12">Lokasi Desa</h2><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d43661.73144726888!2d124.76298638810573!3d1.123130914733319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x328747004d2ed2b9%3A0x9e701f2faf21b2d9!2sNOOGAN!5e1!3m2!1sid!2sid!4v1761259112166!5m2!1sid!2sid" class="w-full h-96 rounded-lg shadow-lg" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><div class="bg-white p-4 rounded-lg shadow-lg max-w-md mx-auto -mt-10 relative z-10"><h4 class="font-semibold">Informasi Lokasi</h4><p class="text-sm text-gray-600">Desa Noongan Dua, Kec. Langowan Bar., Kabupaten Minahasa, Sulawesi Utara</p><p class="text-sm text-gray-600">Koordinat: 1.1963°, 124.7836°</p></div></div></section>
-        
-        <section id="berita" class="py-20 bg-white fade-in-section"><div class="container mx-auto px-4"><h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">Berita Desa</h2><div id="berita-container" class="grid md:grid-cols-3 gap-8"><p id="berita-loading-message" class="text-center md:col-span-3 text-gray-500">Memuat berita...</p></div><div class="text-center mt-12"><button id="load-more-berita" class="bg-red-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-red-700 transition-all transform hover:scale-105 hidden">Muat Lebih Banyak</button><p id="berita-end-message" class="text-gray-500 mt-4 hidden">Semua berita sudah dimuat.</p></div></div></section>
-        
-        <section id="kontak" class="py-20 bg-gray-800 text-white fade-in-section"><div class="container mx-auto px-4 text-center"><h2 class="text-4xl font-bold mb-12">Kontak Kami</h2><div class="grid md:grid-cols-3 gap-12 max-w-4xl mx-auto"><div class="text-center"><div class="bg-red-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-white"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10"><path fill-rule="evenodd" d="M11.54 22.351a21.21 21.21 0 01-8.52-11.45c-1.3-4.32 1.3-9.15 5.5-10.45a.75.75 0 01.93.44l1.39 3.82a.75.75 0 01-.36 1.01l-2.45 1.22a14.21 14.21 0 006.12 6.12l1.22-2.45a.75.75 0 011.01-.36l3.82 1.39a.75.75 0 01.44.93c-1.3 4.2-6.13 6.8-10.45 5.5z" clip-rule="evenodd" /></svg> </div><h3 class="text-xl font-semibold mb-2">Alamat</h3><p class="text-red-100">Desa Noongan Dua, Kab. Minahasa, Sulawesi Utara</p></div><div class="text-center"><div class="bg-red-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-white"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10"><path fill-rule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.819V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" clip-rule="evenodd" /></svg></div><h3 class="text-xl font-semibold mb-2">Telepon</h3><p class="text-red-100">(0431) 123-4567</p></div><div class="text-center"><div class="bg-red-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-white"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10"><path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" /><path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" /></svg></div><h3 class="text-xl font-semibold mb-2">Email</h3><p class="text-red-100">desanoongan2@gmail.com</p></div></div></div></section>
+      <section
+        id="home"
+        class="h-screen min-h-[600px] flex items-center justify-center relative"
+      >
+        <div
+          class="absolute inset-0 bg-cover bg-center"
+          style="background-image: url('header.jpg')"
+        ></div>
+        <div class="absolute inset-0 bg-black/60"></div>
+        <div class="relative text-center text-white p-4">
+          <h1 class="text-5xl md:text-7xl font-bold mb-4">Selamat Datang</h1>
+          <p class="text-xl md:text-2xl font-light">
+            Website Resmi Desa Noongan DUA
+          </p>
+          <p class="text-lg md:text-xl font-light mt-2">
+            Sumber informasi terpadu pemerintahan dan potensi desa kami.
+          </p>
+          <a
+            href="#jelajahi"
+            class="mt-8 inline-block bg-red-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-red-700 transition-all transform hover:scale-105"
+          >
+            Mulai Menjelajah
+          </a>
+        </div>
+      </section>
+
+      <section id="jelajahi" class="py-20 bg-white fade-in-section">
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="text-4xl font-bold text-gray-800 mb-4">Jelajahi Desa</h2>
+          <p class="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+            Pelajari lebih lanjut tentang desa kami melalui profil, sejarah,
+            serta visi dan misi.
+          </p>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div
+              class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 cursor-pointer"
+              data-modal-target="profilModal"
+            >
+              <div
+                class="bg-red-100 text-red-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-10 h-10"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M11.47 2.47a.75.75 0 0 1 1.06 0l4.5 4.5a.75.75 0 0 1-1.06 1.06l-3.22-3.22V16.5a.75.75 0 0 1-1.5 0V4.81L8.03 8.03a.75.75 0 0 1-1.06-1.06l4.5-4.5ZM3 19.5a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-2xl font-semibold mb-3">Profil Desa</h3>
+              <p class="text-gray-600">
+                Klik untuk membaca lebih lanjut tentang profil desa.
+              </p>
+            </div>
+            <div
+              class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 cursor-pointer"
+              data-modal-target="sejarahModal"
+            >
+              <div
+                class="bg-red-100 text-red-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-10 h-10"
+                >
+                  <path
+                    d="M11.25 4.533A9.707 9.707 0 0 0 6 3a9.735 9.735 0 0 0-3.25.555.75.75 0 0 0-.5.707v14.5c0 .339.214.642.533.728a9.735 9.735 0 0 0 3.217-.555 9.707 9.707 0 0 0 5.25 1.288 9.707 9.707 0 0 0 5.25-1.288 9.735 9.735 0 0 0 3.217.555.75.75 0 0 0 .533-.728V4.262a.75.75 0 0 0-.5-.707A9.735 9.735 0 0 0 18 3a9.707 9.707 0 0 0-5.25 1.288 9.707 9.707 0 0 0-1.5-0.055ZM11.25 6.006a8.207 8.207 0 0 1 5.25 1.082V17.4a8.235 8.235 0 0 1-3.217.555 8.207 8.207 0 0 1-5.25-1.082V7.556a8.235 8.235 0 0 1 3.217-.555Z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-2xl font-semibold mb-3">Sejarah Desa</h3>
+              <p class="text-gray-600">
+                Klik untuk membaca lebih lanjut tentang sejarah desa.
+              </p>
+            </div>
+            <div
+              class="bg-gray-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 cursor-pointer"
+              data-modal-target="visiMisiModal"
+            >
+              <div
+                class="bg-red-100 text-red-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-10 h-10"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm.53 5.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.72-1.72v5.69a.75.75 0 0 0 1.5 0v-5.69l1.72 1.72a.75.75 0 1 0 1.06-1.06l-3-3Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-2xl font-semibold mb-3">Visi & Misi</h3>
+              <p class="text-gray-600">
+                Klik untuk membaca lebih lanjut tentang visi & misi.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="organisasi" class="py-20 bg-gray-50 fade-in-section">
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="text-4xl font-bold text-gray-800 mb-4">
+            Struktur Organisasi
+          </h2>
+          <p class="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+            Struktur Pemerintahan Desa Noongan DUA.
+          </p>
+          <div class="space-y-10">
+            <div class="flex justify-center">
+              <div
+                class="bg-white p-6 rounded-xl shadow-lg border-2 border-red-600 w-full max-w-sm"
+              >
+                <h4 class="text-lg font-bold text-red-700">Hukum Tua</h4>
+                <p class="text-xl font-semibold text-gray-900">
+                  Veky Donal Soriton, Ama.TM
+                </p>
+              </div>
+            </div>
+            <div class="w-px h-10 bg-gray-300 mx-auto"></div>
+            <div>
+              <h3 class="text-2xl font-semibold text-gray-700 mb-8">
+                Aparat Sekretariat Desa
+              </h3>
+              <div class="flex justify-center mb-8">
+                <div
+                  class="bg-white p-6 rounded-xl shadow-lg border-2 border-red-500 w-full max-w-sm"
+                >
+                  <h4 class="text-md font-bold text-gray-500">
+                    Sekretaris Desa
+                  </h4>
+                  <p class="text-lg font-semibold text-gray-900">
+                    Elfira Ellisa Wungkana, SKM
+                  </p>
+                </div>
+              </div>
+              <div
+                class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+              >
+                <div
+                  class="bg-white p-4 rounded-xl shadow-md border border-gray-200"
+                >
+                  <h4 class="text-sm font-bold text-gray-500">Kaur Keuangan</h4>
+                  <p class="text-md font-semibold text-gray-900">
+                    Audy Alfrits Wungkar, S.E
+                  </p>
+                </div>
+                <div
+                  class="bg-white p-4 rounded-xl shadow-md border border-gray-200"
+                >
+                  <h4 class="text-sm font-bold text-gray-500">Kaur Umum</h4>
+                  <p class="text-md font-semibold text-gray-900">
+                    Rentje Tambuwun
+                  </p>
+                </div>
+                <div
+                  class="bg-white p-4 rounded-xl shadow-md border border-gray-200"
+                >
+                  <h4 class="text-sm font-bold text-gray-500">
+                    Kasie Pemerintahan
+                  </h4>
+                  <p class="text-md font-semibold text-gray-900">
+                    Nordy Raranta
+                  </p>
+                </div>
+                <div
+                  class="bg-white p-4 rounded-xl shadow-md border border-gray-200"
+                >
+                  <h4 class="text-sm font-bold text-gray-500">
+                    Kasie Kesejahteraan
+                  </h4>
+                  <p class="text-md font-semibold text-gray-900">
+                    Very Ronald Wungkana
+                  </p>
+                </div>
+                <div
+                  class="bg-white p-4 rounded-xl shadow-md border border-gray-200"
+                >
+                  <h4 class="text-sm font-bold text-gray-500">
+                    Kasie Perencanaan
+                  </h4>
+                  <p class="text-md font-semibold text-gray-900">
+                    Hanny Soriton
+                  </p>
+                </div>
+                <div
+                  class="bg-white p-4 rounded-xl shadow-md border border-gray-200"
+                >
+                  <h4 class="text-sm font-bold text-gray-500">Operator Desa</h4>
+                  <p class="text-md font-semibold text-gray-900">
+                    Revina Wintry Jostein, S.E
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="w-px h-10 bg-gray-300 mx-auto"></div>
+            <div>
+              <h3 class="text-2xl font-semibold text-gray-700 mb-8">
+                Aparat Wilayah (Jaga)
+              </h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+                <div
+                  class="bg-white p-5 rounded-xl shadow-lg border border-gray-200"
+                >
+                  <h4 class="text-md font-bold text-red-600 mb-2">JAGA 1</h4>
+                  <p class="text-sm font-semibold text-gray-800">
+                    Recky Wungkana
+                  </p>
+                  <p class="text-xs text-gray-500">(Kepala Jaga)</p>
+                  <hr class="my-2" />
+                  <p class="text-sm font-semibold text-gray-800">
+                    Erwin Walean
+                  </p>
+                  <p class="text-xs text-gray-500">(Meweteng Jaga)</p>
+                </div>
+                <div
+                  class="bg-white p-5 rounded-xl shadow-lg border border-gray-200"
+                >
+                  <h4 class="text-md font-bold text-red-600 mb-2">JAGA 2</h4>
+                  <p class="text-sm font-semibold text-gray-800">
+                    Jefry Wowiling
+                  </p>
+                  <p class="text-xs text-gray-500">(Kepala Jaga)</p>
+                  <hr class="my-2" />
+                  <p class="text-sm font-semibold text-gray-800">
+                    Constan Rommy Woran
+                  </p>
+                  <p class="text-xs text-gray-500">(Meweteng Jaga)</p>
+                </div>
+                <div
+                  class="bg-white p-5 rounded-xl shadow-lg border border-gray-200"
+                >
+                  <h4 class="text-md font-bold text-red-600 mb-2">JAGA 3</h4>
+                  <p class="text-sm font-semibold text-gray-800">
+                    Very Djowi Sumual
+                  </p>
+                  <p class="text-xs text-gray-500">(Kepala Jaga)</p>
+                  <hr class="my-2" />
+                  <p class="text-sm font-semibold text-gray-800">
+                    Hizkia Hersi Sambur
+                  </p>
+                  <p class="text-xs text-gray-500">(Meweteng Jaga)</p>
+                </div>
+                <div
+                  class="bg-white p-5 rounded-xl shadow-lg border border-gray-200"
+                >
+                  <h4 class="text-md font-bold text-red-600 mb-2">JAGA 4</h4>
+                  <p class="text-sm font-semibold text-gray-800">
+                    Destifly Kanter
+                  </p>
+                  <p class="text-xs text-gray-500">(Kepala Jaga)</p>
+                  <hr class="my-2" />
+                  <p class="text-sm font-semibold text-gray-800">
+                    Lorina Ignasia Kembuan
+                  </p>
+                  <p class="text-xs text-gray-500">(Meweteng Jaga)</p>
+                </div>
+                <div
+                  class="bg-white p-5 rounded-xl shadow-lg border border-gray-200"
+                >
+                  <h4 class="text-md font-bold text-red-600 mb-2">JAGA 5</h4>
+                  <p class="text-sm font-semibold text-gray-800">
+                    Herie Safenfrie Soriton
+                  </p>
+                  <p class="text-xs text-gray-500">(Kepala Jaga)</p>
+                  <hr class="my-2" />
+                  <p class="text-sm font-semibold text-gray-800">
+                    Hendrik Buang Kaat
+                  </p>
+                  <p class="text-xs text-gray-500">(Meweteng Jaga)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="wilayah" class="py-20 bg-gray-50 fade-in-section">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">
+              Wilayah dan Batas Desa
+            </h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+              Memahami letak geografis dan batas-batas administratif Desa
+              Noongan DUA.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <img
+                id="map-image-trigger"
+                src="peta_wilayah.jpg"
+                alt="Peta Administrasi Desa Noongan"
+                class="w-full h-full object-contain rounded-lg shadow-lg cursor-pointer transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <div>
+              <h3 class="text-2xl font-semibold text-gray-800 mb-6">
+                Batas Administratif
+              </h3>
+              <div class="space-y-6">
+                <div class="flex items-start gap-4">
+                  <div
+                    class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="w-6 h-6"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M12 2.25a.75.75 0 01.75.75v16.19l6.22-6.22a.75.75 0 111.06 1.06l-7.5 7.5a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 111.06-1.06l6.22 6.22V3a.75.75 0 01.75-.75z"
+                        clip-rule="evenodd"
+                        transform="rotate(180 12 12)"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-gray-700">Utara</h4>
+                    <p class="text-gray-600">
+                      Berbatasan dengan Desa Raringis Utara.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <div
+                    class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="w-6 h-6"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M12.97 3.97a.75.75 0 011.06 0l7.5 7.5a.75.75 0 010 1.06l-7.5 7.5a.75.75 0 11-1.06-1.06l6.22-6.22H3a.75.75 0 010-1.5h16.19l-6.22-6.22a.75.75 0 010-1.06z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-gray-700">Timur</h4>
+                    <p class="text-gray-600">
+                      Berbatasan dengan Desa Noongan Tiga, Desa Woiwongko, dan
+                      Desa Koyawas.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <div
+                    class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="w-6 h-6"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M12 2.25a.75.75 0 01.75.75v16.19l6.22-6.22a.75.75 0 111.06 1.06l-7.5 7.5a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 111.06-1.06l6.22 6.22V3a.75.75 0 01.75-.75z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-gray-700">Selatan</h4>
+                    <p class="text-gray-600">
+                      Berbatasan dengan wilayah Kabupaten Minahasa Tenggara.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <div
+                    class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="w-6 h-6"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M11.03 3.97a.75.75 0 010 1.06l-6.22 6.22H21a.75.75 0 010 1.5H4.81l6.22 6.22a.75.75 0 11-1.06 1.06l-7.5-7.5a.75.75 0 010-1.06l7.5-7.5a.75.75 0 011.06 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-gray-700">Barat</h4>
+                    <p class="text-gray-600">
+                      Berbatasan dengan wilayah perkebunan dan Desa Noongan.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="penduduk"
+        class="py-20 bg-red-700 text-white fade-in-section"
+      >
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="text-4xl font-bold mb-16">Data Penduduk (Demografi)</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="flex flex-col items-center p-4">
+              <span
+                class="text-5xl font-bold block data-counter"
+                data-target="408"
+                >0</span
+              >
+              <span class="text-lg text-red-100 mt-2">Kepala Keluarga</span>
+            </div>
+            <div class="flex flex-col items-center p-4">
+              <span
+                class="text-5xl font-bold block data-counter"
+                data-target="1131"
+                >0</span
+              >
+              <span class="text-lg text-red-100 mt-2">Total Jiwa</span>
+            </div>
+            <div class="flex flex-col items-center p-4">
+              <span
+                class="text-5xl font-bold block data-counter"
+                data-target="581"
+                >0</span
+              >
+              <span class="text-lg text-red-100 mt-2">Laki-Laki</span>
+            </div>
+            <div class="flex flex-col items-center p-4">
+              <span
+                class="text-5xl font-bold block data-counter"
+                data-target="549"
+                >0</span
+              >
+              <span class="text-lg text-red-100 mt-2">Perempuan</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="demografi-usia" class="py-20 bg-white fade-in-section">
+        <div class="container mx-auto px-4">
+          <h2 class="text-4xl font-bold text-gray-800 mb-16 text-center">
+            Demografi Berdasarkan Usia
+          </h2>
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto"
+          >
+            <div
+              class="bg-gray-50 p-6 rounded-lg shadow flex items-center gap-4"
+            >
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center"
+              >
+                <span class="font-bold text-lg">0-10</span>
+              </div>
+              <div>
+                <span
+                  class="text-3xl font-bold text-gray-800 data-counter"
+                  data-target="140"
+                  >0</span
+                ><span class="text-gray-600 ml-2">Jiwa</span>
+              </div>
+            </div>
+            <div
+              class="bg-gray-50 p-6 rounded-lg shadow flex items-center gap-4"
+            >
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center"
+              >
+                <span class="font-bold text-lg">11-20</span>
+              </div>
+              <div>
+                <span
+                  class="text-3xl font-bold text-gray-800 data-counter"
+                  data-target="139"
+                  >0</span
+                ><span class="text-gray-600 ml-2">Jiwa</span>
+              </div>
+            </div>
+            <div
+              class="bg-gray-50 p-6 rounded-lg shadow flex items-center gap-4"
+            >
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center"
+              >
+                <span class="font-bold text-lg">21-30</span>
+              </div>
+              <div>
+                <span
+                  class="text-3xl font-bold text-gray-800 data-counter"
+                  data-target="181"
+                  >0</span
+                ><span class="text-gray-600 ml-2">Jiwa</span>
+              </div>
+            </div>
+            <div
+              class="bg-gray-50 p-6 rounded-lg shadow flex items-center gap-4"
+            >
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center"
+              >
+                <span class="font-bold text-lg">31-40</span>
+              </div>
+              <div>
+                <span
+                  class="text-3xl font-bold text-gray-800 data-counter"
+                  data-target="141"
+                  >0</span
+                ><span class="text-gray-600 ml-2">Jiwa</span>
+              </div>
+            </div>
+            <div
+              class="bg-gray-50 p-6 rounded-lg shadow flex items-center gap-4"
+            >
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center"
+              >
+                <span class="font-bold text-lg">41-50</span>
+              </div>
+              <div>
+                <span
+                  class="text-3xl font-bold text-gray-800 data-counter"
+                  data-target="148"
+                  >0</span
+                ><span class="text-gray-600 ml-2">Jiwa</span>
+              </div>
+            </div>
+            <div
+              class="bg-gray-50 p-6 rounded-lg shadow flex items-center gap-4"
+            >
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center"
+              >
+                <span class="font-bold text-lg">51-60</span>
+              </div>
+              <div>
+                <span
+                  class="text-3xl font-bold text-gray-800 data-counter"
+                  data-target="169"
+                  >0</span
+                ><span class="text-gray-600 ml-2">Jiwa</span>
+              </div>
+            </div>
+            <div
+              class="bg-gray-50 p-6 rounded-lg shadow flex items-center gap-4"
+            >
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center"
+              >
+                <span class="font-bold text-lg">61-70</span>
+              </div>
+              <div>
+                <span
+                  class="text-3xl font-bold text-gray-800 data-counter"
+                  data-target="121"
+                  >0</span
+                ><span class="text-gray-600 ml-2">Jiwa</span>
+              </div>
+            </div>
+            <div
+              class="bg-gray-50 p-6 rounded-lg shadow flex items-center gap-4"
+            >
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center"
+              >
+                <span class="font-bold text-lg">70+</span>
+              </div>
+              <div>
+                <span
+                  class="text-3xl font-bold text-gray-800 data-counter"
+                  data-target="73"
+                  >0</span
+                ><span class="text-gray-600 ml-2">Jiwa</span>
+              </div>
+            </div>
+            <div
+              class="bg-gray-50 p-6 rounded-lg shadow flex items-center gap-4"
+            >
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M9.813 11.924c-.429-.228-.922-.228-1.35 0L4.22 14.287a.75.75 0 000 1.06l.163.164a.75.75 0 001.06 0l4.07-4.07a.75.75 0 000-1.06L5.44 6.22a.75.75 0 00-1.06 0L4.22 6.383a.75.75 0 000 1.06l4.243 4.243c.429.228.922.228 1.35 0l4.243-4.243a.75.75 0 000-1.06l-.163-.164a.75.75 0 00-1.06 0l-4.07 4.07a.75.75 0 000 1.06l4.07 4.07a.75.75 0 001.06 0l.163-.164a.75.75 0 000-1.06l-4.243-2.363zM15.813 11.924c-.429-.228-.922-.228-1.35 0L10.22 14.287a.75.75 0 000 1.06l.163.164a.75.75 0 001.06 0l4.07-4.07a.75.75 0 000-1.06L11.44 6.22a.75.75 0 00-1.06 0l-.163.164a.75.75 0 000 1.06l4.243 4.243c.429.228.922.228 1.35 0l4.243-4.243a.75.75 0 000-1.06l-.163-.164a.75.75 0 00-1.06 0l-4.07 4.07a.75.75 0 000 1.06l4.07 4.07a.75.75 0 001.06 0l.163-.164a.75.75 0 000-1.06l-4.243-2.363z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div>
+                <span
+                  class="text-3xl font-bold text-gray-800 data-counter"
+                  data-target="19"
+                  >0</span
+                ><span class="text-gray-600 ml-2">Tdk. Diketahui</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pekerjaan" class="py-20 bg-gray-50 fade-in-section">
+        <div class="container mx-auto px-4">
+          <h2 class="text-4xl font-bold text-gray-800 mb-16 text-center">
+            Struktur Pekerjaan Penduduk
+          </h2>
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto"
+          >
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg flex items-center gap-4 transition-all transform hover:shadow-xl hover:-translate-y-1"
+            >
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div>
+                <span
+                  class="text-3xl font-bold text-gray-800 data-counter"
+                  data-target="290"
+                  >0</span
+                >
+                <p class="text-gray-600">Ibu Rumah Tangga (IRT)</p>
+              </div>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg flex items-center gap-4 transition-all transform hover:shadow-xl hover:-translate-y-1"
+            >
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    d="M3.375 3C2.339 3 1.5 3.84 1.5 4.875v.75c0 1.036.84 1.875 1.875 1.875h17.25c1.035 0 1.875-.84 1.875-1.875v-.75C22.5 3.839 21.66 3 20.625 3H3.375z"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    d="M3.087 9l.54 9.176A3 3 0 006.62 21h10.757a3 3 0 002.995-2.824L20.914 9H3.087zm6.163 3.75A.75.75 0 0110 12h4a.75.75 0 010 1.5h-4a.75.75 0 01-.75-.75z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div>
+                <span
+                  class="text-3xl font-bold text-gray-800 data-counter"
+                  data-target="229"
+                  >0</span
+                >
+                <p class="text-gray-600">Wiraswasta</p>
+              </div>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg flex items-center gap-4 transition-all transform hover:shadow-xl hover:-translate-y-1"
+            >
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    d="M11.25 9.75a.75.75 0 00-1.5 0v1.5c0 .414.336.75.75.75h1.5a.75.75 0 000-1.5H11.25V9.75z"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    d="M6.162 3.126a.75.75 0 01.52.022l1.5 1.002a.75.75 0 01.306.643v3.831a.75.75 0 00.86.745l2.264-.503a.75.75 0 01.86.745v.69a.75.75 0 00.323.63l.978.652a.75.75 0 01.323.63v3.378a.75.75 0 00.86.745l2.264-.503a.75.75 0 01.86.745v.69a.75.75 0 00.323.63l.978.652a.75.75 0 01.323.63v3.018A2.25 2.25 0 0118.75 21H5.25A2.25 2.25 0 013 18.75V8.25a.75.75 0 01.52-.728l1.5-1.002a.75.75 0 01.306-.643v-2a.75.75 0 01.836-.752z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div>
+                <span
+                  class="text-3xl font-bold text-gray-800 data-counter"
+                  data-target="153"
+                  >0</span
+                >
+                <p class="text-gray-600">Petani</p>
+              </div>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg flex items-center gap-4 transition-all transform hover:shadow-xl hover:-translate-y-1"
+            >
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 1.5a5.25 5.25 0 00-5.25 5.25v3a3 3 0 00-3 3v6.75a3 3 0 003 3h10.5a3 3 0 003-3v-6.75a3 3 0 00-3-3v-3c0-2.9-2.35-5.25-5.25-5.25zm3.75 8.25v-3a3.75 3.75 0 10-7.5 0v3h7.5z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div>
+                <span
+                  class="text-3xl font-bold text-gray-800 data-counter"
+                  data-target="187"
+                  >0</span
+                >
+                <p class="text-gray-600">PNS / TNI / Polri</p>
+              </div>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg flex items-center gap-4 transition-all transform hover:shadow-xl hover:-translate-y-1"
+            >
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div>
+                <span
+                  class="text-3xl font-bold text-gray-800 data-counter"
+                  data-target="114"
+                  >0</span
+                >
+                <p class="text-gray-600">Belum / Tidak Bekerja</p>
+              </div>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg flex items-center gap-4 transition-all transform hover:shadow-xl hover:-translate-y-1"
+            >
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12.963 2.286a.75.75 0 00-1.071 1.05 9.75 9.75 0 01-1.303 3.093.75.75 0 00-.55 1.05A9.75 9.75 0 017.2 11.852a.75.75 0 00-1.05.55 9.75 9.75 0 01-3.093 1.303.75.75 0 00-1.05 1.072 9.75 9.75 0 013.093 1.303.75.75 0 00.55 1.05 9.75 9.75 0 011.303 3.094.75.75 0 001.072 1.05 9.75 9.75 0 013.093-1.303.75.75 0 001.05-.55 9.75 9.75 0 013.094-1.303.75.75 0 001.05-1.072 9.75 9.75 0 01-1.303-3.093.75.75 0 00-.55-1.05 9.75 9.75 0 01-1.303-3.094.75.75 0 00-1.072-1.05z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div>
+                <span
+                  class="text-3xl font-bold text-gray-800 data-counter"
+                  data-target="40"
+                  >0</span
+                >
+                <p class="text-gray-600">Tenaga Honorer (THL)</p>
+              </div>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg flex items-center gap-4 transition-all transform hover:shadow-xl hover:-translate-y-1"
+            >
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    d="M12.378 1.602a.75.75 0 00-.756 0L3 6.632l9 5.25 9-5.25-8.622-5.03zM21.75 7.903l-9 5.25a.75.75 0 01-.75 0l-9-5.25a.75.75 0 00-.75.65V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0022.5 18V8.553a.75.75 0 00-.75-.65z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <span
+                  class="text-3xl font-bold text-gray-800 data-counter"
+                  data-target="22"
+                  >0</span
+                >
+                <p class="text-gray-600">Pelajar / Belum Sekolah</p>
+              </div>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg flex items-center gap-4 transition-all transform hover:shadow-xl hover:-translate-y-1"
+            >
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    d="M4.5 4.5a3 3 0 00-3 3v9a3 3 0 003 3h15a3 3 0 003-3v-9a3 3 0 00-3-3h-15zM22.5 9a.75.75 0 00-.75-.75H2.25a.75.75 0 000 1.5H21.75a.75.75 0 00.75-.75z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <span
+                  class="text-3xl font-bold text-gray-800 data-counter"
+                  data-target="11"
+                  >0</span
+                >
+                <p class="text-gray-600">Pensiunan</p>
+              </div>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg flex items-center gap-4 transition-all transform hover:shadow-xl hover:-translate-y-1"
+            >
+              <div
+                class="flex-shrink-0 w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div>
+                <span
+                  class="text-3xl font-bold text-gray-800 data-counter"
+                  data-target="51"
+                  >0</span
+                >
+                <p class="text-gray-600">Jasa & Lain-Lain</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="potensi" class="py-20 bg-white fade-in-section">
+        <div class="container mx-auto px-4">
+          <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">
+            Potensi Unggulan Desa
+          </h2>
+          <p class="text-lg text-gray-600 mb-16 max-w-3xl mx-auto text-center">
+            Desa Noongan DUA dianugerahi sumber daya alam dan potensi lokal yang
+            beragam, menjadi pilar utama perekonomian dan kesejahteraan
+            masyarakat.
+          </p>
+          <div
+            id="potensi-container"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          >
+            <p
+              id="potensi-loading-message"
+              class="text-center md:col-span-3 text-gray-500"
+            >
+              Memuat potensi desa...
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="peta" class="py-20 bg-gray-100 fade-in-section">
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="text-4xl font-bold text-gray-800 mb-12">Lokasi Desa</h2>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d43661.73144726888!2d124.76298638810573!3d1.123130914733319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x328747004d2ed2b9%3A0x9e701f2faf21b2d9!2sNOOGAN!5e1!3m2!1sid!2sid!4v1761259112166!5m2!1sid!2sid"
+            class="w-full h-96 rounded-lg shadow-lg"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <div
+            class="bg-white p-4 rounded-lg shadow-lg max-w-md mx-auto -mt-10 relative z-10"
+          >
+            <h4 class="font-semibold">Informasi Lokasi</h4>
+            <p class="text-sm text-gray-600">
+              Desa Noongan Dua, Kec. Langowan Bar., Kabupaten Minahasa, Sulawesi
+              Utara
+            </p>
+            <p class="text-sm text-gray-600">Koordinat: 1.1963°, 124.7836°</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="berita" class="py-20 bg-white fade-in-section">
+        <div class="container mx-auto px-4">
+          <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">
+            Berita Desa
+          </h2>
+          <div id="berita-container" class="grid md:grid-cols-3 gap-8">
+            <p
+              id="berita-loading-message"
+              class="text-center md:col-span-3 text-gray-500"
+            >
+              Memuat berita...
+            </p>
+          </div>
+          <div class="text-center mt-12">
+            <button
+              id="load-more-berita"
+              class="bg-red-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-red-700 transition-all transform hover:scale-105 hidden"
+            >
+              Muat Lebih Banyak
+            </button>
+            <p id="berita-end-message" class="text-gray-500 mt-4 hidden">
+              Semua berita sudah dimuat.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="kontak" class="py-20 bg-gray-800 text-white fade-in-section">
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="text-4xl font-bold mb-12">Kontak Kami</h2>
+          <div class="grid md:grid-cols-3 gap-12 max-w-4xl mx-auto">
+            <div class="text-center">
+              <div
+                class="bg-red-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-white"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-10 h-10"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M11.54 22.351a21.21 21.21 0 01-8.52-11.45c-1.3-4.32 1.3-9.15 5.5-10.45a.75.75 0 01.93.44l1.39 3.82a.75.75 0 01-.36 1.01l-2.45 1.22a14.21 14.21 0 006.12 6.12l1.22-2.45a.75.75 0 011.01-.36l3.82 1.39a.75.75 0 01.44.93c-1.3 4.2-6.13 6.8-10.45 5.5z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Alamat</h3>
+              <p class="text-red-100">
+                Desa Noongan Dua, Kab. Minahasa, Sulawesi Utara
+              </p>
+            </div>
+            <div class="text-center">
+              <div
+                class="bg-red-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-white"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-10 h-10"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.819V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Telepon</h3>
+              <p class="text-red-100">(0431) 123-4567</p>
+            </div>
+            <div class="text-center">
+              <div
+                class="bg-red-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-white"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-10 h-10"
+                >
+                  <path
+                    d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z"
+                  />
+                  <path
+                    d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Email</h3>
+              <p class="text-red-100">desanoongan2@gmail.com</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <footer class="bg-gray-900 text-gray-400 pt-16 pb-8"> <div class="container mx-auto px-4"> <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12"> <div> <div class="flex items-center gap-2 mb-4"> <img src="logominahasa.jpg" alt="Logo Desa" class="h-10 bg-white rounded-full"> <span class="font-bold text-xl text-white">Desa Noongan DUA</span> </div> <p class="text-gray-400">Menjunjung tinggi nilai tradisi, menyambut modernisasi untuk desa yang maju dan sejahtera.</p> </div> <div> <h4 class="text-lg font-semibold text-white mb-4">Tautan Cepat</h4> <ul class="space-y-2"> <li><a href="#jelajahi" class="hover:text-white transition-colors nav-link">Jelajahi Desa</a></li> <li><a href="#organisasi" class="hover:text-white transition-colors nav-link">Organisasi</a></li> <li><a href="#wilayah" class="hover:text-white transition-colors nav-link">Wilayah</a></li> <li><a href="#penduduk" class="hover:text-white transition-colors nav-link">Penduduk</a></li> <li><a href="#potensi" class="hover:text-white transition-colors nav-link">Potensi Desa</a></li> <li><a href="#peta" class="hover:text-white transition-colors nav-link">Peta</a></li> <li><a href="#berita" class="hover:text-white transition-colors nav-link">Berita</a></li> <li><a href="#kontak" class="hover:text-white transition-colors nav-link">Kontak</a></li> </ul> </div> <div> <h4 class="text-lg font-semibold text-white mb-4">Ikuti Kami</h4> <div class="flex space-x-4"> <a href="#" aria-label="Facebook" class="bg-gray-700 p-2 rounded-full text-white hover:bg-red-600 transition-colors transform hover:scale-110"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a> <a href="#" aria-label="Instagram" class="bg-gray-700 p-2 rounded-full text-white hover:bg-red-600 transition-colors transform hover:scale-110"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 012.752 2.752 4.902 4.902 0 01.465 2.427c.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808a4.902 4.902 0 01-.465 2.427 4.902 4.902 0 01-2.752 2.752 4.902 4.902 0 01-2.427.465c-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06a4.902 4.902 0 01-2.427-.465 4.902 4.902 0 01-2.752-2.752 4.902 4.902 0 01-.465-2.427c-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808a4.902 4.902 0 01.465-2.427 4.902 4.902 0 012.752-2.752 4.902 4.902 0 012.427-.465C9.53 2.013 9.884 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm5.75-8.25a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5z" clip-rule="evenodd" /></svg></a> <a href="#" aria-label="YouTube" class="bg-gray-700 p-2 rounded-full text-white hover:bg-red-600 transition-colors transform hover:scale-110"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.78 22 12 22 12s0 3.22-.42 4.814a2.506 2.506 0 01-1.768 1.768c-1.594.42-7.812.42-7.812.42s-6.218 0-7.812-.42a2.506 2.506 0 01-1.768-1.768C2 15.22 2 12 2 12s0-3.22.42-4.814a2.506 2.506 0 011.768-1.768C5.782 5 12 5 12 5s6.218 0 7.812.418zM9.94 15.55v-7.1l6.04 3.55-6.04 3.55z" clip-rule="evenodd" /></svg></a> </div> </div> </div> <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm"> <p class="mb-4 md:mb-0">© 2025 Desa Noongan DUA. Seluruh hak cipta dilindungi.</p> <p>Desain oleh <a href="#" class="font-semibold hover:text-white transition-colors">KKT 144 Unsrat</a></p> </div> </div> </footer>
+    <footer class="bg-gray-900 text-gray-400 pt-16 pb-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+          <div>
+            <div class="flex items-center gap-2 mb-4">
+              <img
+                src="logominahasa.jpg"
+                alt="Logo Desa"
+                class="h-10 bg-white rounded-full"
+              />
+              <span class="font-bold text-xl text-white">Desa Noongan DUA</span>
+            </div>
+            <p class="text-gray-400">
+              Menjunjung tinggi nilai tradisi, menyambut modernisasi untuk desa
+              yang maju dan sejahtera.
+            </p>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold text-white mb-4">Tautan Cepat</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#jelajahi"
+                  class="hover:text-white transition-colors nav-link"
+                  >Jelajahi Desa</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#organisasi"
+                  class="hover:text-white transition-colors nav-link"
+                  >Organisasi</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#wilayah"
+                  class="hover:text-white transition-colors nav-link"
+                  >Wilayah</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#penduduk"
+                  class="hover:text-white transition-colors nav-link"
+                  >Penduduk</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#potensi"
+                  class="hover:text-white transition-colors nav-link"
+                  >Potensi Desa</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#peta"
+                  class="hover:text-white transition-colors nav-link"
+                  >Peta</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#berita"
+                  class="hover:text-white transition-colors nav-link"
+                  >Berita</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#kontak"
+                  class="hover:text-white transition-colors nav-link"
+                  >Kontak</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold text-white mb-4">Ikuti Kami</h4>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                aria-label="Facebook"
+                class="bg-gray-700 p-2 rounded-full text-white hover:bg-red-600 transition-colors transform hover:scale-110"
+                ><svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                    clip-rule="evenodd"
+                  /></svg
+              ></a>
+              <a
+                href="#"
+                aria-label="Instagram"
+                class="bg-gray-700 p-2 rounded-full text-white hover:bg-red-600 transition-colors transform hover:scale-110"
+                ><svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 012.752 2.752 4.902 4.902 0 01.465 2.427c.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808a4.902 4.902 0 01-.465 2.427 4.902 4.902 0 01-2.752 2.752 4.902 4.902 0 01-2.427.465c-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06a4.902 4.902 0 01-2.427-.465 4.902 4.902 0 01-2.752-2.752 4.902 4.902 0 01-.465-2.427c-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808a4.902 4.902 0 01.465-2.427 4.902 4.902 0 012.752-2.752 4.902 4.902 0 012.427-.465C9.53 2.013 9.884 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm5.75-8.25a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5z"
+                    clip-rule="evenodd"
+                  /></svg
+              ></a>
+              <a
+                href="#"
+                aria-label="YouTube"
+                class="bg-gray-700 p-2 rounded-full text-white hover:bg-red-600 transition-colors transform hover:scale-110"
+                ><svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.78 22 12 22 12s0 3.22-.42 4.814a2.506 2.506 0 01-1.768 1.768c-1.594.42-7.812.42-7.812.42s-6.218 0-7.812-.42a2.506 2.506 0 01-1.768-1.768C2 15.22 2 12 2 12s0-3.22.42-4.814a2.506 2.506 0 011.768-1.768C5.782 5 12 5 12 5s6.218 0 7.812.418zM9.94 15.55v-7.1l6.04 3.55-6.04 3.55z"
+                    clip-rule="evenodd"
+                  /></svg
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm"
+        >
+          <p class="mb-4 md:mb-0">
+            © 2025 Desa Noongan DUA. Seluruh hak cipta dilindungi.
+          </p>
+          <p>
+            Desain oleh
+            <a href="#" class="font-semibold hover:text-white transition-colors"
+              >KKN 144 Unsrat</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
 
-    <div id="profilModal" class="modal-backdrop hidden fixed inset-0 bg-black/70 z-[60] flex items-center justify-center p-4"> <div class="modal-content bg-white w-full max-w-2xl rounded-lg shadow-xl transform transition-all opacity-0 translate-y-4"> <div class="flex justify-between items-center p-5 border-b"> <h3 class="text-2xl font-semibold">Profil Desa</h3> <button class="modal-close p-1 hover:bg-gray-200 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg></button> </div> <div class="p-6 space-y-4 max-h-[70vh] overflow-y-auto"> <p>Desa Noongan DUA adalah sebuah desa yang terletak di kabupaten Minahasa, Provinsi Sulawesi Utara. Desa ini memiliki potensi alam yang kaya dan masyarakat yang dinamis.</p> <p>Secara administratif, Desa Noongan DUA terdiri dari beberapa lingkungan dengan jumlah penduduk yang terus berkembang. Desa ini memiliki luas wilayah yang strategis dan dapat diakses dengan mudah.</p> </div> <div class="p-5 border-t bg-gray-50 text-right rounded-b-lg"> <button class="modal-close bg-red-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-700 transition-colors">Tutup</button> </div> </div> </div>
-    <div id="sejarahModal" class="modal-backdrop hidden fixed inset-0 bg-black/70 z-[60] flex items-center justify-center p-4"> <div class="modal-content bg-white w-full max-w-2xl rounded-lg shadow-xl transform transition-all opacity-0 translate-y-4"> <div class="flex justify-between items-center p-5 border-b"><h3 class="text-2xl font-semibold">Sejarah Desa</h3><button class="modal-close p-1 hover:bg-gray-200 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg></button></div> <div class="p-6 md:p-8 space-y-4 max-h-[70vh] overflow-y-auto"> <div class="relative pl-6 border-l-4 border-red-200"> <div class="mb-8 relative"><div class="absolute -left-8 -top-1 w-4 h-4 bg-red-600 rounded-full border-4 border-white"></div><div class="pl-4"><span class="text-sm font-semibold text-red-600 bg-red-100 px-3 py-1 rounded-full">Masa Prasejarah</span><p class="mt-2 text-gray-700">Di kaki Gunung Soputan terdapat dataran tinggi "KELELONDEY". Adanya aliran sungai Ranotelu menyebabkan genangan air ("WENONG"), sehingga dinamai "PA' BENONGAN". Rombongan dari G. Soputan (dipimpin Turangan dan Korua) datang membuka ladang.</p></div></div> <div class="mb-8 relative"><div class="absolute -left-8 -top-1 w-4 h-4 bg-red-600 rounded-full border-4 border-white"></div><div class="pl-4"><span class="text-sm font-semibold text-red-600 bg-red-100 px-3 py-1 rounded-full">Sekitar Tahun 1810</span><p class="mt-2 text-gray-700">Karena subur, banyak yang menetap, termasuk dari Tompaso, Remboken, dan Langowan. Berdasarkan kuburan tua, diperkirakan sebuah desa berdiri di Pabenongan sekitar tahun 1810.</p></div></div> <div class="mb-8 relative"><div class="absolute -left-8 -top-1 w-4 h-4 bg-red-600 rounded-full border-4 border-white"></div><div class="pl-4"><span class="text-sm font-semibold text-red-600 bg-red-100 px-3 py-1 rounded-full">Tahun 1872 - Era Onderneming</span><p class="mt-2 text-gray-700">Orang Inggris dipimpin Tuan RIGHT menyewa Kelelondey dari Belanda. Mereka membuka perusahaan perkebunan ("Onderneming") kopi pada tahun 1872. Rakyat Pabenongan bekerja sebagai buruh upahan.</p></div></div> <div class="mb-8 relative"><div class="absolute -left-8 -top-1 w-4 h-4 bg-red-600 rounded-full border-4 border-white"></div><div class="pl-4"><span class="text-sm font-semibold text-red-600 bg-red-100 px-3 py-1 rounded-full">Tahun 1880 - Pendidikan</span><p class="mt-2 text-gray-700">Pemerintah Belanda melalui "NZG" (Nederlandsh Zendingsh Genotschap) mendirikan sekolah "NZG VOLK SCHOOL" di Pabenongan pada tahun 1880.</p></div></div> <div class="mb-8 relative"><div class="absolute -left-8 -top-1 w-4 h-4 bg-red-600 rounded-full border-4 border-white"></div><div class="pl-4"><span class="text-sm font-semibold text-red-600 bg-red-100 px-3 py-1 rounded-full">Tahun 1881 - Lahirnya "NOONGAN"</span><p class="mt-2 text-gray-700">Pada tahun 1881, atas permintaan Jepang kepada Belanda, rakyat di Pabenongan dipindahkan ke timur. Mereka mendirikan negeri baru yang dinamai "NOONGAN". Inilah desa Noongan yang ada sampai sekarang.</p></div></div> <div class="mb-8 relative"><div class="absolute -left-8 -top-1 w-4 h-4 bg-red-600 rounded-full border-4 border-white"></div><div class="pl-4"><span class="text-sm font-semibold text-red-600 bg-red-100 px-3 py-1 rounded-full">Tahun 1890 - Era Jepang</span><p class="mt-2 text-gray-700">Orang Jepang datang dan mengambil alih Onderneming dari Inggris. Perkebunan kopi diubah menjadi kapas, dan perusahaan industri pemintalan itu diberi nama "KONAMENGKA".</p></div></div> <div class="mb-8 relative"><div class="absolute -left-8 -top-1 w-4 h-4 bg-red-600 rounded-full border-4 border-white"></div><div class="pl-4"><span class="text-sm font-semibold text-red-600 bg-red-100 px-3 py-1 rounded-full">Tahun 1905 - Peresmian Desa</span><p class="mt-2 text-gray-700">Setelah ditetapkan sebagai perkampungan pada 1879, Noongan diresmikan menjadi Desa pada tahun 1905. Belanda juga membangun Rumah Sakit Paru-Paru yang awalnya bernama Sanatorium "EMMA".</p></div></div> <div class="relative"><div class="absolute -left-8 -top-1 w-4 h-4 bg-red-600 rounded-full border-4 border-white"></div><div class="pl-4"><span class="text-sm font-semibold text-red-600 bg-red-100 px-3 py-1 rounded-full">Era Modern: Pemekaran</span><p class="mt-2 text-gray-700">Pada 1 Oktober 2007, desa induk dimekarkan menjadi 3 desa: Desa Noongan, Desa Noongan Dua, dan Desa Noongan Tiga. Desa-desa ini disahkan menjadi Desa Definitif pada 2 November 2010.</p></div></div> </div> </div> <div class="p-5 border-t bg-gray-50 text-right rounded-b-lg"><button class="modal-close bg-red-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-700 transition-colors">Tutup</button></div> </div> </div>
-    <div id="visiMisiModal" class="modal-backdrop hidden fixed inset-0 bg-black/70 z-[60] flex items-center justify-center p-4"> <div class="modal-content bg-white w-full max-w-2xl rounded-lg shadow-xl transform transition-all opacity-0 translate-y-4"> <div class="flex justify-between items-center p-5 border-b"><h3 class="text-2xl font-semibold">Visi & Misi</h3><button class="modal-close p-1 hover:bg-gray-200 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg></button></div> <div class="p-6 space-y-4 max-h-[70vh] overflow-y-auto"> <h4 class="text-xl font-semibold">Visi</h4><p>Menjadi desa yang maju, sejahtera, dan berkarakter, inovatif, dan responsif terhadap perubahan zaman.</p> <h4 class="text-xl font-semibold mt-4">Misi</h4><ol class="list-decimal list-inside space-y-2"><li>Meningkatkan kualitas pelayanan publik.</li><li>Mengembangkan potensi ekonomi lokal.</li><li>Meningkatkan akses pendidikan, kesehatan, dan infrastruktur.</li></ol> </div> <div class="p-5 border-t bg-gray-50 text-right rounded-b-lg"><button class="modal-close bg-red-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-700 transition-colors">Tutup</button></div> </div> </div>
-    <div id="beritaModal" class="modal-backdrop hidden fixed inset-0 bg-black/70 z-[60] flex items-center justify-center p-4"> <div class="modal-content bg-white w-full max-w-3xl rounded-lg shadow-xl transform transition-all opacity-0 translate-y-4"> <div class="flex justify-between items-center p-5 border-b"><h3 id="modal-berita-judul" class="text-2xl font-semibold">Memuat Berita...</h3><button class="modal-close p-1 hover:bg-gray-200 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg></button></div> <div class="p-0 md:p-0 max-h-[70vh] overflow-y-auto"> <img id="modal-berita-gambar" src="https://via.placeholder.com/800x400.png?text=Memuat+Gambar" alt="Gambar Berita" class="w-full h-64 object-cover bg-gray-200"> <div class="p-6 space-y-4"> <p id="modal-berita-tanggal" class="text-sm text-red-600 font-semibold"></p> <div id="modal-berita-konten" class="text-gray-700 space-y-4"><p>Memuat konten...</p></div> </div> </div> <div class="p-5 border-t bg-gray-50 text-right rounded-b-lg"><button class="modal-close bg-red-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-700 transition-colors">Tutup</button></div> </div> </div>
-    <div id="potensiModal" class="modal-backdrop hidden fixed inset-0 bg-black/70 z-[60] flex items-center justify-center p-4"> <div class="modal-content bg-white w-full max-w-2xl rounded-lg shadow-xl transform transition-all opacity-0 translate-y-4"> <div class="flex justify-between items-center p-5 border-b"> <h3 id="modal-potensi-judul" class="text-2xl font-semibold">Memuat Potensi...</h3> <button class="modal-close p-1 hover:bg-gray-200 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg></button> </div> <div class="p-0 max-h-[70vh] overflow-y-auto"> <img id="modal-potensi-gambar" src="https://via.placeholder.com/800x400.png?text=Memuat+Gambar" alt="Gambar Potensi" class="w-full h-64 object-cover bg-gray-200"> <div class="p-6 space-y-4"> <div id="modal-potensi-konten" class="text-gray-700 space-y-4"> <p>Memuat konten...</p> </div> </div> </div> <div class="p-5 border-t bg-gray-50 text-right rounded-b-lg"> <button class="modal-close bg-red-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-700 transition-colors">Tutup</button> </div> </div> </div>
-    <div id="mapZoomModal" class="modal-backdrop hidden fixed inset-0 bg-black/80 z-[70] flex items-center justify-center p-4"> <button class="modal-close absolute top-4 right-4 text-white text-3xl z-[80] hover:text-gray-300">×</button> <div class="modal-content bg-transparent w-full max-w-4xl h-auto relative transform transition-all opacity-0 scale-95 max-h-[90vh] overflow-auto"> <img id="modal-map-image" src="" alt="Peta Administrasi Desa Noongan (Zoom)" class="w-full h-full object-contain rounded-lg shadow-xl"> </div> </div>
+    <div
+      id="profilModal"
+      class="modal-backdrop hidden fixed inset-0 bg-black/70 z-[60] flex items-center justify-center p-4"
+    >
+      <div
+        class="modal-content bg-white w-full max-w-2xl rounded-lg shadow-xl transform transition-all opacity-0 translate-y-4"
+      >
+        <div class="flex justify-between items-center p-5 border-b">
+          <h3 class="text-2xl font-semibold">Profil Desa</h3>
+          <button class="modal-close p-1 hover:bg-gray-200 rounded-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18 18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="p-6 space-y-4 max-h-[70vh] overflow-y-auto">
+          <p>
+            Desa Noongan DUA adalah sebuah desa yang terletak di kabupaten
+            Minahasa, Provinsi Sulawesi Utara. Desa ini memiliki potensi alam
+            yang kaya dan masyarakat yang dinamis.
+          </p>
+          <p>
+            Secara administratif, Desa Noongan DUA terdiri dari beberapa
+            lingkungan dengan jumlah penduduk yang terus berkembang. Desa ini
+            memiliki luas wilayah yang strategis dan dapat diakses dengan mudah.
+          </p>
+        </div>
+        <div class="p-5 border-t bg-gray-50 text-right rounded-b-lg">
+          <button
+            class="modal-close bg-red-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-700 transition-colors"
+          >
+            Tutup
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      id="sejarahModal"
+      class="modal-backdrop hidden fixed inset-0 bg-black/70 z-[60] flex items-center justify-center p-4"
+    >
+      <div
+        class="modal-content bg-white w-full max-w-2xl rounded-lg shadow-xl transform transition-all opacity-0 translate-y-4"
+      >
+        <div class="flex justify-between items-center p-5 border-b">
+          <h3 class="text-2xl font-semibold">Sejarah Desa</h3>
+          <button class="modal-close p-1 hover:bg-gray-200 rounded-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18 18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="p-6 md:p-8 space-y-4 max-h-[70vh] overflow-y-auto">
+          <div class="relative pl-6 border-l-4 border-red-200">
+            <div class="mb-8 relative">
+              <div
+                class="absolute -left-8 -top-1 w-4 h-4 bg-red-600 rounded-full border-4 border-white"
+              ></div>
+              <div class="pl-4">
+                <span
+                  class="text-sm font-semibold text-red-600 bg-red-100 px-3 py-1 rounded-full"
+                  >Masa Prasejarah</span
+                >
+                <p class="mt-2 text-gray-700">
+                  Di kaki Gunung Soputan terdapat dataran tinggi "KELELONDEY".
+                  Adanya aliran sungai Ranotelu menyebabkan genangan air
+                  ("WENONG"), sehingga dinamai "PA' BENONGAN". Rombongan dari G.
+                  Soputan (dipimpin Turangan dan Korua) datang membuka ladang.
+                </p>
+              </div>
+            </div>
+            <div class="mb-8 relative">
+              <div
+                class="absolute -left-8 -top-1 w-4 h-4 bg-red-600 rounded-full border-4 border-white"
+              ></div>
+              <div class="pl-4">
+                <span
+                  class="text-sm font-semibold text-red-600 bg-red-100 px-3 py-1 rounded-full"
+                  >Sekitar Tahun 1810</span
+                >
+                <p class="mt-2 text-gray-700">
+                  Karena subur, banyak yang menetap, termasuk dari Tompaso,
+                  Remboken, dan Langowan. Berdasarkan kuburan tua, diperkirakan
+                  sebuah desa berdiri di Pabenongan sekitar tahun 1810.
+                </p>
+              </div>
+            </div>
+            <div class="mb-8 relative">
+              <div
+                class="absolute -left-8 -top-1 w-4 h-4 bg-red-600 rounded-full border-4 border-white"
+              ></div>
+              <div class="pl-4">
+                <span
+                  class="text-sm font-semibold text-red-600 bg-red-100 px-3 py-1 rounded-full"
+                  >Tahun 1872 - Era Onderneming</span
+                >
+                <p class="mt-2 text-gray-700">
+                  Orang Inggris dipimpin Tuan RIGHT menyewa Kelelondey dari
+                  Belanda. Mereka membuka perusahaan perkebunan ("Onderneming")
+                  kopi pada tahun 1872. Rakyat Pabenongan bekerja sebagai buruh
+                  upahan.
+                </p>
+              </div>
+            </div>
+            <div class="mb-8 relative">
+              <div
+                class="absolute -left-8 -top-1 w-4 h-4 bg-red-600 rounded-full border-4 border-white"
+              ></div>
+              <div class="pl-4">
+                <span
+                  class="text-sm font-semibold text-red-600 bg-red-100 px-3 py-1 rounded-full"
+                  >Tahun 1880 - Pendidikan</span
+                >
+                <p class="mt-2 text-gray-700">
+                  Pemerintah Belanda melalui "NZG" (Nederlandsh Zendingsh
+                  Genotschap) mendirikan sekolah "NZG VOLK SCHOOL" di Pabenongan
+                  pada tahun 1880.
+                </p>
+              </div>
+            </div>
+            <div class="mb-8 relative">
+              <div
+                class="absolute -left-8 -top-1 w-4 h-4 bg-red-600 rounded-full border-4 border-white"
+              ></div>
+              <div class="pl-4">
+                <span
+                  class="text-sm font-semibold text-red-600 bg-red-100 px-3 py-1 rounded-full"
+                  >Tahun 1881 - Lahirnya "NOONGAN"</span
+                >
+                <p class="mt-2 text-gray-700">
+                  Pada tahun 1881, atas permintaan Jepang kepada Belanda, rakyat
+                  di Pabenongan dipindahkan ke timur. Mereka mendirikan negeri
+                  baru yang dinamai "NOONGAN". Inilah desa Noongan yang ada
+                  sampai sekarang.
+                </p>
+              </div>
+            </div>
+            <div class="mb-8 relative">
+              <div
+                class="absolute -left-8 -top-1 w-4 h-4 bg-red-600 rounded-full border-4 border-white"
+              ></div>
+              <div class="pl-4">
+                <span
+                  class="text-sm font-semibold text-red-600 bg-red-100 px-3 py-1 rounded-full"
+                  >Tahun 1890 - Era Jepang</span
+                >
+                <p class="mt-2 text-gray-700">
+                  Orang Jepang datang dan mengambil alih Onderneming dari
+                  Inggris. Perkebunan kopi diubah menjadi kapas, dan perusahaan
+                  industri pemintalan itu diberi nama "KONAMENGKA".
+                </p>
+              </div>
+            </div>
+            <div class="mb-8 relative">
+              <div
+                class="absolute -left-8 -top-1 w-4 h-4 bg-red-600 rounded-full border-4 border-white"
+              ></div>
+              <div class="pl-4">
+                <span
+                  class="text-sm font-semibold text-red-600 bg-red-100 px-3 py-1 rounded-full"
+                  >Tahun 1905 - Peresmian Desa</span
+                >
+                <p class="mt-2 text-gray-700">
+                  Setelah ditetapkan sebagai perkampungan pada 1879, Noongan
+                  diresmikan menjadi Desa pada tahun 1905. Belanda juga
+                  membangun Rumah Sakit Paru-Paru yang awalnya bernama
+                  Sanatorium "EMMA".
+                </p>
+              </div>
+            </div>
+            <div class="relative">
+              <div
+                class="absolute -left-8 -top-1 w-4 h-4 bg-red-600 rounded-full border-4 border-white"
+              ></div>
+              <div class="pl-4">
+                <span
+                  class="text-sm font-semibold text-red-600 bg-red-100 px-3 py-1 rounded-full"
+                  >Era Modern: Pemekaran</span
+                >
+                <p class="mt-2 text-gray-700">
+                  Pada 1 Oktober 2007, desa induk dimekarkan menjadi 3 desa:
+                  Desa Noongan, Desa Noongan Dua, dan Desa Noongan Tiga.
+                  Desa-desa ini disahkan menjadi Desa Definitif pada 2 November
+                  2010.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-5 border-t bg-gray-50 text-right rounded-b-lg">
+          <button
+            class="modal-close bg-red-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-700 transition-colors"
+          >
+            Tutup
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      id="visiMisiModal"
+      class="modal-backdrop hidden fixed inset-0 bg-black/70 z-[60] flex items-center justify-center p-4"
+    >
+      <div
+        class="modal-content bg-white w-full max-w-2xl rounded-lg shadow-xl transform transition-all opacity-0 translate-y-4"
+      >
+        <div class="flex justify-between items-center p-5 border-b">
+          <h3 class="text-2xl font-semibold">Visi & Misi</h3>
+          <button class="modal-close p-1 hover:bg-gray-200 rounded-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18 18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="p-6 space-y-4 max-h-[70vh] overflow-y-auto">
+          <h4 class="text-xl font-semibold">Visi</h4>
+          <p>
+            Menjadi desa yang maju, sejahtera, dan berkarakter, inovatif, dan
+            responsif terhadap perubahan zaman.
+          </p>
+          <h4 class="text-xl font-semibold mt-4">Misi</h4>
+          <ol class="list-decimal list-inside space-y-2">
+            <li>Meningkatkan kualitas pelayanan publik.</li>
+            <li>Mengembangkan potensi ekonomi lokal.</li>
+            <li>
+              Meningkatkan akses pendidikan, kesehatan, dan infrastruktur.
+            </li>
+          </ol>
+        </div>
+        <div class="p-5 border-t bg-gray-50 text-right rounded-b-lg">
+          <button
+            class="modal-close bg-red-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-700 transition-colors"
+          >
+            Tutup
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      id="beritaModal"
+      class="modal-backdrop hidden fixed inset-0 bg-black/70 z-[60] flex items-center justify-center p-4"
+    >
+      <div
+        class="modal-content bg-white w-full max-w-3xl rounded-lg shadow-xl transform transition-all opacity-0 translate-y-4"
+      >
+        <div class="flex justify-between items-center p-5 border-b">
+          <h3 id="modal-berita-judul" class="text-2xl font-semibold">
+            Memuat Berita...
+          </h3>
+          <button class="modal-close p-1 hover:bg-gray-200 rounded-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18 18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="p-0 md:p-0 max-h-[70vh] overflow-y-auto">
+          <img
+            id="modal-berita-gambar"
+            src="https://via.placeholder.com/800x400.png?text=Memuat+Gambar"
+            alt="Gambar Berita"
+            class="w-full h-64 object-cover bg-gray-200"
+          />
+          <div class="p-6 space-y-4">
+            <p
+              id="modal-berita-tanggal"
+              class="text-sm text-red-600 font-semibold"
+            ></p>
+            <div id="modal-berita-konten" class="text-gray-700 space-y-4">
+              <p>Memuat konten...</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-5 border-t bg-gray-50 text-right rounded-b-lg">
+          <button
+            class="modal-close bg-red-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-700 transition-colors"
+          >
+            Tutup
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      id="potensiModal"
+      class="modal-backdrop hidden fixed inset-0 bg-black/70 z-[60] flex items-center justify-center p-4"
+    >
+      <div
+        class="modal-content bg-white w-full max-w-2xl rounded-lg shadow-xl transform transition-all opacity-0 translate-y-4"
+      >
+        <div class="flex justify-between items-center p-5 border-b">
+          <h3 id="modal-potensi-judul" class="text-2xl font-semibold">
+            Memuat Potensi...
+          </h3>
+          <button class="modal-close p-1 hover:bg-gray-200 rounded-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18 18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="p-0 max-h-[70vh] overflow-y-auto">
+          <img
+            id="modal-potensi-gambar"
+            src="https://via.placeholder.com/800x400.png?text=Memuat+Gambar"
+            alt="Gambar Potensi"
+            class="w-full h-64 object-cover bg-gray-200"
+          />
+          <div class="p-6 space-y-4">
+            <div id="modal-potensi-konten" class="text-gray-700 space-y-4">
+              <p>Memuat konten...</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-5 border-t bg-gray-50 text-right rounded-b-lg">
+          <button
+            class="modal-close bg-red-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-700 transition-colors"
+          >
+            Tutup
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      id="mapZoomModal"
+      class="modal-backdrop hidden fixed inset-0 bg-black/80 z-[70] flex items-center justify-center p-4"
+    >
+      <button
+        class="modal-close absolute top-4 right-4 text-white text-3xl z-[80] hover:text-gray-300"
+      >
+        ×
+      </button>
+      <div
+        class="modal-content bg-transparent w-full max-w-4xl h-auto relative transform transition-all opacity-0 scale-95 max-h-[90vh] overflow-auto"
+      >
+        <img
+          id="modal-map-image"
+          src=""
+          alt="Peta Administrasi Desa Noongan (Zoom)"
+          class="w-full h-full object-contain rounded-lg shadow-xl"
+        />
+      </div>
+    </div>
 
-    <script>
-        // --- Konfigurasi ---
-        const CONTENTFUL_SPACE_ID = '6mexkw3rau5q';
-        const CONTENTFUL_ACCESS_TOKEN = 'Aha_l_pf6YOina8OjVRguekkyHLIQgakyqSKTQnkfHk';
-        const BERITA_CONTENT_TYPE_ID = 'berita'; 
-        const POTENSI_CONTENT_TYPE_ID = 'potensi'; 
-        const contentfulApiUrl = `https://cdn.contentful.com/spaces/${CONTENTFUL_SPACE_ID}/environments/master`;
-        const BERITA_PER_PAGE = 9; 
-
-        // --- Variabel Global ---
-        let currentBeritaSkip = 0; let totalBeritaAvailable = 0; 
-        let allBeritaItems = []; 
-        let allPotensiItems = [];
-        let allAssets = []; 
-        let loadMoreButton, loadingMessage, endMessage, beritaContainer, potensiContainer, potensiLoadingMessage; 
-
-        // --- Fetch Berita ---
-        async function fetchBerita(initialLoad = false) { 
-            if (!beritaContainer && initialLoad) { return; }
-            if (initialLoad && loadingMessage) loadingMessage.style.display = 'block'; 
-            if (loadMoreButton) loadMoreButton.style.display = 'none'; 
-            try {
-                const url = `${contentfulApiUrl}/entries?access_token=${CONTENTFUL_ACCESS_TOKEN}&content_type=${BERITA_CONTENT_TYPE_ID}&include=1&limit=${BERITA_PER_PAGE}&skip=${currentBeritaSkip}&order=-sys.createdAt`;
-                const response = await fetch(url);
-                if (!response.ok) throw new Error('Gagal mengambil data berita');
-                const data = await response.json();
-                if (initialLoad) { totalBeritaAvailable = data.total; if (loadingMessage) loadingMessage.style.display = 'none'; if (beritaContainer) beritaContainer.innerHTML = ''; }
-                if (!data.items || data.items.length === 0) { if (!initialLoad) { if (endMessage) endMessage.style.display = 'block'; } else if (beritaContainer) { beritaContainer.innerHTML = '<p class="text-center md:col-span-3 text-gray-500">Belum ada berita yang dipublikasikan.</p>'; } if(initialLoad && loadMoreButton) loadMoreButton.style.display = 'none'; return; }
-                allBeritaItems = allBeritaItems.concat(data.items);
-                const newAssets = (data.includes?.Asset) ? data.includes.Asset : [];
-                newAssets.forEach(a => { if (!allAssets.some(e => e.sys.id === a.sys.id)) { allAssets.push(a); } });
-                data.items.forEach(item => {
-                    const fields = item.fields; let imageUrl = 'https://via.placeholder.com/400x250.png?text=Foto';
-                    if (fields.gambar?.sys?.id) { const asset = allAssets.find(a => a.sys.id === fields.gambar.sys.id); if (asset?.fields?.file?.url) { imageUrl = `https:${asset.fields.file.url}?w=400&h=250`; } }
-                    const tgl = fields.tanggal ? new Date(fields.tanggal).toLocaleDateString('id-ID', { day: '2-digit', month: 'long', year: 'numeric'}) : '';
-                    const judul = fields.judul || 'Judul'; const ringkasan = fields.ringkasan || '';
-                    const card = `<div class="bg-white rounded-lg shadow-lg overflow-hidden group transition-all"><img src="${imageUrl}" alt="${judul}" class="w-full h-48 object-cover bg-gray-200"> <div class="p-6"><p class="text-sm text-red-600 font-semibold mb-2">${tgl}</p><h3 class="text-xl font-semibold text-gray-800 mb-3">${judul}</h3><p class="text-gray-600 text-sm mb-4">${ringkasan}</p><button type="button" class="font-semibold text-red-600 hover:text-red-800 berita-modal-trigger transition-all group-hover:scale-105" data-berita-id="${item.sys.id}">Baca Selengkapnya →</button></div></div>`;
-                    if (beritaContainer) beritaContainer.insertAdjacentHTML('beforeend', card); 
-                });
-                currentBeritaSkip += data.items.length;
-                if (currentBeritaSkip < totalBeritaAvailable) { if (loadMoreButton) loadMoreButton.style.display = 'inline-block'; } 
-                else { if (endMessage) endMessage.style.display = 'block'; if (loadMoreButton) loadMoreButton.style.display = 'none'; }
-            } catch (error) { console.error("Error di fetchBerita:", error); if (beritaContainer) { beritaContainer.innerHTML = '<p class="text-center md:col-span-3 text-red-500">Gagal memuat berita.</p>'; } if (loadingMessage) loadingMessage.style.display = 'none'; if (loadMoreButton) loadMoreButton.style.display = 'none'; }
-        }
-
-        // --- Fetch Potensi ---
-        async function fetchPotensi() {
-             if (!potensiContainer) { return; }
-             if (potensiLoadingMessage) potensiLoadingMessage.style.display = 'block';
-             try {
-                const url = `${contentfulApiUrl}/entries?access_token=${CONTENTFUL_ACCESS_TOKEN}&content_type=${POTENSI_CONTENT_TYPE_ID}&order=sys.createdAt&include=1`;
-                const response = await fetch(url);
-                if (!response.ok) throw new Error(`Gagal ambil potensi (${response.status})`);
-                const data = await response.json();
-                if (potensiLoadingMessage) potensiLoadingMessage.style.display = 'none';
-                if (!data.items || data.items.length === 0) { potensiContainer.innerHTML = '<p class="text-center md:col-span-3 text-gray-500">Data potensi belum tersedia.</p>'; return; }
-                
-                allPotensiItems = data.items; 
-                const potensiAssets = (data.includes?.Asset) ? data.includes.Asset : [];
-                potensiAssets.forEach(a => { if (!allAssets.some(e => e.sys.id === a.sys.id)) { allAssets.push(a); } });
-                
-                potensiContainer.innerHTML = ''; 
-                data.items.forEach(item => {
-                    const fields = item.fields; const judul = fields.judul || 'Potensi'; const desk = fields.deskripsi || ''; let iconUrl = 'https://via.placeholder.com/100x100.png?text=Icon'; let iconAlt = judul; 
-                    if (fields.icon?.sys?.id) { const asset = allAssets.find(a => a.sys.id === fields.icon.sys.id); if (asset?.fields?.file?.url) { iconUrl = `https:${asset.fields.file.url}?w=100&h=100&fit=pad&bg=transparent`; iconAlt = asset.fields.title || judul; } }
-                    const deskSingkat = desk.length > 100 ? desk.substring(0, 100) + '...' : desk; 
-                    const descFmt = deskSingkat.replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-gray-800">$1</strong>');
-                    const card = `<div class="bg-white p-8 rounded-xl shadow-lg transition-all transform hover:shadow-xl hover:-translate-y-1 text-center border border-gray-100 flex flex-col justify-between"><div class="mb-4"> <div class="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 p-3 shadow-sm"><img src="${iconUrl}" alt="${iconAlt}" class="w-full h-full object-contain"></div><h3 class="text-2xl font-bold mb-3 text-gray-800">${judul}</h3><p class="text-gray-600 text-base">${descFmt}</p></div><button type="button" class="mt-4 font-semibold text-red-600 hover:text-red-800 potensi-modal-trigger" data-potensi-id="${item.sys.id}">Baca Selengkapnya →</button></div>`;
-                    potensiContainer.insertAdjacentHTML('beforeend', card);
-                });
-             } catch (error) { console.error("Error di fetchPotensi:", error); if (potensiContainer) { potensiContainer.innerHTML = `<p class="text-center md:col-span-3 text-red-500">Gagal memuat potensi: ${error.message}</p>`; } if (potensiLoadingMessage) potensiLoadingMessage.style.display = 'none'; }
-        }
-        
-        // --- Helper Modal ---
-        function openModal(modalEl) { if(modalEl){ modalEl.classList.remove('hidden'); setTimeout(() => { modalEl.querySelector('.modal-content')?.classList.add('opacity-100','translate-y-0','scale-100'); }, 10); } }
-        function closeModal(modalEl) { if(modalEl){ modalEl.querySelector('.modal-content')?.classList.remove('opacity-100','translate-y-0','scale-100'); modalEl.querySelector('.modal-content')?.classList.add('scale-95'); setTimeout(() => { modalEl.classList.add('hidden'); }, 300); } }
-        
-        // --- DOMContentLoaded ---
-        document.addEventListener('DOMContentLoaded', () => {
-            loadMoreButton = document.getElementById('load-more-berita'); loadingMessage = document.getElementById('berita-loading-message'); endMessage = document.getElementById('berita-end-message'); beritaContainer = document.getElementById('berita-container'); potensiContainer = document.getElementById('potensi-container'); potensiLoadingMessage = document.getElementById('potensi-loading-message'); 
-            const mobileMenuButton = document.getElementById('mobile-menu-button'); const mobileMenu = document.getElementById('mobile-menu'); 
-            fetchBerita(true); fetchPotensi(); 
-            if (loadMoreButton) { loadMoreButton.addEventListener('click', () => fetchBerita(false)); }
-            if (mobileMenuButton && mobileMenu) { mobileMenuButton.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.toggle('hidden'); }); }
-
-            // Central Click Handler
-            document.body.addEventListener('click', function(e) {
-                const navLink = e.target.closest('a.nav-link'); 
-                const staticModalTrigger = e.target.closest('[data-modal-target]'); 
-                const beritaModalTrigger = e.target.closest('.berita-modal-trigger'); 
-                const potensiModalTrigger = e.target.closest('.potensi-modal-trigger'); 
-                const mapImageTrigger = e.target.closest('#map-image-trigger'); 
-                const modalCloseButton = e.target.closest('.modal-close'); 
-                const modalBackdrop = e.target.classList.contains('modal-backdrop') ? e.target : null; 
-
-                // Tutup menu mobile
-                if(mobileMenu && !mobileMenu.classList.contains('hidden')) { if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target) || (navLink && navLink.closest('#mobile-menu'))) { mobileMenu.classList.add('hidden'); } }
-                
-                // Tutup modal
-                if (modalCloseButton) { closeModal(modalCloseButton.closest('.modal-backdrop')); return; } 
-                if (modalBackdrop) { closeModal(modalBackdrop); return; }
-
-                // Trigger lain
-                if (navLink) { e.preventDefault(); const t = document.querySelector(navLink.getAttribute('href')); if(t) t.scrollIntoView({ behavior: 'smooth' }); }
-                else if (staticModalTrigger) { openModal(document.getElementById(staticModalTrigger.dataset.modalTarget)); }
-                else if (mapImageTrigger) { const s = mapImageTrigger.getAttribute('src'), mI = document.getElementById('modal-map-image'), mZ = document.getElementById('mapZoomModal'); if (mI && mZ && s) { mI.setAttribute('src', s); openModal(mZ); } }
-                
-                // Trigger Modal Potensi
-                else if (potensiModalTrigger) {
-                    e.preventDefault(); 
-                    const item = allPotensiItems.find(i => i.sys.id === potensiModalTrigger.dataset.potensiId); 
-                    if (item) {
-                        let imageUrl = 'https://via.placeholder.com/800x400.png?text=Icon'; 
-                        let imageAlt = item.fields.judul || 'Ikon';
-                        if (item.fields.icon?.sys?.id) { 
-                            const asset = allAssets.find(a => a.sys.id === item.fields.icon.sys.id); 
-                            if (asset?.fields?.file?.url) { 
-                                // Minta ukuran LEBIH BESAR dan gunakan COVER
-                                imageUrl = `https:${asset.fields.file.url}?w=800&h=400&fit=cover`; 
-                                imageAlt = asset.fields.title || item.fields.judul; 
-                            } 
-                        }
-                        let kontenHtml = '<p>Konten tidak tersedia.</p>'; 
-                        if (item.fields.isiLengkap) { kontenHtml = '<p>' + item.fields.isiLengkap.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>') + '</p>'; }
-
-                        document.getElementById('modal-potensi-judul').textContent = item.fields.judul || 'Potensi'; 
-                        const modalGambar = document.getElementById('modal-potensi-gambar'); // Target <img> header
-                        if (modalGambar) { 
-                            modalGambar.src = imageUrl; 
-                            modalGambar.alt = imageAlt; 
-                            modalGambar.classList.add('bg-gray-200'); // Tambah fallback bg
-                        } 
-                        document.getElementById('modal-potensi-konten').innerHTML = kontenHtml;
-                        openModal(document.getElementById('potensiModal')); 
-                    }
-                }
-                // Akhir Trigger Modal Potensi
-                
-                else if (beritaModalTrigger) { // Trigger Modal Berita
-                    e.preventDefault(); const item = allBeritaItems.find(i => i.sys.id === beritaModalTrigger.dataset.beritaId); 
-                    if (item) {
-                        let imgUrl = 'https://via.placeholder.com/800x400.png?text=Foto'; if (item.fields.gambar?.sys?.id) { const a = allAssets.find(a => a.sys.id === item.fields.gambar.sys.id); if (a?.fields?.file?.url) { imgUrl = `https:${a.fields.file.url}?w=800&h=400`; } }
-                        const tgl = item.fields.tanggal ? new Date(item.fields.tanggal).toLocaleDateString('id-ID', { day: '2-digit', month: 'long', year: 'numeric'}) : '';
-                        let kont = '<p>Konten tidak tersedia.</p>'; if (item.fields.isiLengkap) { kont = '<p>' + item.fields.isiLengkap.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>') + '</p>'; }
-                        document.getElementById('modal-berita-judul').textContent = item.fields.judul || 'Judul'; 
-                        document.getElementById('modal-berita-tanggal').textContent = tgl;
-                        const mG = document.getElementById('modal-berita-gambar'); if(mG) { mG.src = imgUrl; mG.alt = item.fields.judul || 'Gambar'; mG.classList.add('bg-gray-200'); } 
-                        document.getElementById('modal-berita-konten').innerHTML = kont;
-                        openModal(document.getElementById('beritaModal')); 
-                    }
-                }
-            });
-            
-            // Scroll Animation Logic
-            const sections = document.querySelectorAll('.fade-in-section'); const obs = new IntersectionObserver((e) => { e.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('is-visible'); obs.unobserve(entry.target); } }); }, { threshold: 0.1 }); sections.forEach(s => { obs.observe(s); });
-            
-            // Number Counter Logic
-            const counters = document.querySelectorAll('.data-counter'); const ctrObs = new IntersectionObserver((e,o) => { e.forEach(entry => { if(entry.isIntersecting){ const t=+entry.target.getAttribute('data-target'), d=1500, sT=20, inc=t/(d/sT); let curr=0; const timer=setInterval(()=>{ curr+=inc; if(curr>=t){ entry.target.innerText=t.toLocaleString('id-ID'); clearInterval(timer); } else { entry.target.innerText=Math.floor(curr).toLocaleString('id-ID'); } }, sT); o.unobserve(entry.target); } }); }, { threshold: 0.5 }); counters.forEach(c => { ctrObs.observe(c); });
-        }); 
-    </script>
-
-</body>
+    <script src="script.js" defer></script>
+  </body>
 </html>
